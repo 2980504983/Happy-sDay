@@ -11,13 +11,47 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
+            background-color: black;
+        }
+        #button{
+            width: 21em;
+            height: 7em;
+            outline: none;
+            border: none;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            /* transform: translate(-40%, -40%); */
+            background: linear-gradient(to right, rgb(252, 252, 252) 10%, rgb(182, 182, 182));
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 1s;
+            
+            
+        }
+        #button:hover{
+            box-shadow: 0 0 1000px rgb(253, 255, 224);
+        }
+        #button p{
+            line-height: 60px;
+            color: rgb(194, 174, 23);
+            font-size: 30px;
+            font-family: button;
+            opacity: .88;
         }
     </style>
 </head>
 
-<body id="background" background="img/bg.jpg">
+<body id="background">
     <div>
-        
+        <button id="button">
+
+        </button>
     </div>
+    <script>
+        function click(){
+
+        }
+    </script>
 </body>
 </html>
