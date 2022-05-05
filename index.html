@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome</title>
-    
+    <!-- <link rel="stylesheet" href="moon.css"> -->
     <style>
         *{margin: 0; padding: 0;}
         
@@ -65,8 +65,18 @@
             100%{
                 opacity: 0.2;
             }
-
         }
+
+.sun{
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: 50%;
+    left:50%;
+    background-color: rgb(255, 255, 200);
+    border-radius: 50%;
+    box-shadow: 0 0 3rem rgb(243, 255, 11), 0 0 140rem rgb(255, 255, 94); 
+}
     </style>
 </head>
 
@@ -75,7 +85,16 @@
         <button id="button" onclick=bb()>
 
         </button>
-        <canvas id="canvas"></canvas>
+        
+
+            
+        <div class="sun" style="display:none"></div>
+  
+        <canvas id="canvas" ></canvas>
+        
+
+
+        
 
     </div>
     <script>
@@ -104,8 +123,26 @@
             starPosition();
 
             // 关闭按钮
-            var button = document.getElementById("button")
+            var button = document.getElementById("button");
             button.style.display = "none";
+
+            // 设置背景
+            // document.getElementById("background").setAttribute("background-image", "img/people.jpg");
+            
+            //动态引入月亮样式(将显示属性改成block)
+            function loadStyles(){
+                var sun = document.getElementsByClassName("sun")[0];
+                sun.style.display = "block";
+                
+
+            }
+            
+            
+
+            
+
+
+
             // 初始化画布,w为画布宽度,h为画布高度
 var can = document.getElementById('canvas');
 var ctx = can.getContext('2d');
@@ -124,7 +161,12 @@ init: function() {
     // x,y表示流星初始坐标, r表示圆圈的半徿 vy表示速度的范囿 va表示圆圈扩大持续的时闿 l表示流星什么变成圆圈走过的路径长度
     
     this.y = random(0, (h/3)*2);
-    this.x = w
+    if (this.y<5){
+        this.x = random(w/2,w);
+    }else{
+        this.x = w;
+    }
+    
 
     
     this.r = 0.4;
@@ -135,7 +177,7 @@ init: function() {
     this.vr = 1;
     this.a = 2;
     this.va = 0.96;
-    this.l = random(h * 0.8, h * 1.2);
+    this.l = random(h * 0.5, h * 1.2);
 },
 // 如果当前流星的y坐标大于l,就画圆圈,没有的话
 draw: function() {
@@ -151,15 +193,15 @@ draw: function() {
     } else {
         ctx.fillStyle = color(this.a);
         // 绘制流星
-        ctx.fillRect(this.x, this.y, 2, 3);
+        ctx.fillRect(this.x, this.y, 2, 5);
     }
     this.update();
 },
 update: function() {
     if (this.y < this.l) {
         // 如果流星的y坐标小于l,则y坐标加等于速度
-        this.x -= this.vy+Math.cos((30 * 1) / 180);
-        this.y += this.vy+Math.sin((30 * 150) / 10);
+        this.x -= this.vy+5;
+        this.y += this.vy+Math.sin((30 * 150) / 100);
         // 如果大于l,并且a
     } else {
         if (this.a > 0.03) {
@@ -203,9 +245,10 @@ var g = Math.floor(Math.random() * 255);
 var b = Math.floor(Math.random() * 255);
 return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 };
-
+loadStyles();
 
         }
+        
     </script>
 </body>
 </html>
