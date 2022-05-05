@@ -34,8 +34,8 @@
             width: 0;
             height: 0;
             opacity: 0.2;
-            border: 0.5px solid transparent;
-            border-bottom: 4px solid #fff;
+            border: 0.005em solid transparent;
+            border-bottom: 0.001em solid #fff;
             animation:flash 2s infinite linear;
         }
         .star::before{
@@ -162,7 +162,7 @@
                 for(var n=0;n<rainCount;n++){
                     var rain = rains[n];
                     rain.move();
-                    if(rain.y>window.innerHeight){
+                    if(rain.y>window.innerHeight+200){
                         context.clearRect(
                             rain.x,
                             rain.y-rain.height,
