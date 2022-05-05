@@ -34,17 +34,17 @@
             width: 0;
             height: 0;
             opacity: 0.2;
-            border: 0.0005em solid transparent;
-            border-bottom: 0.0001em solid #fff;
+            border: 0.005em solid transparent;
+            border-bottom: 0.001em solid #fff;
             animation:flash 2s infinite linear;
         }
         .star::before{
             content:"";
             position: absolute;
-            left: -1px;
-            top: 4px;
-            border: 0.5px solid;
-            border-top: 4px solid #fff;
+            left: 0;
+            top: 1px;
+            border: 0.05px solid;
+            border-top: 0.4px solid #fff;
         }
         @keyframes flash{
             20%{
@@ -106,8 +106,8 @@
             function MeteorRain(){
                 this.x=Math.random()*window.innerWidth;
                 this.y=Math.random()*window.innerHeight;
-                this.lenght=Math.ceil(Math.random()*80+150);
-                // this.lenght=Math.ceil(Math.random()*40+20);
+                // this.lenght=Math.ceil(Math.random()*80+150);
+                this.lenght=Math.ceil(Math.random()*40+20);
                 this.angle=30;
                 this.cos=Math.cos((this.angle*2)/180);
                 // this.cos=Math.cos((this.angle*2)/12);
@@ -162,7 +162,7 @@
                 for(var n=0;n<rainCount;n++){
                     var rain = rains[n];
                     rain.move();
-                    if(rain.y>window.innerHeight+200){
+                    if(rain.y>window.innerHeight){
                         context.clearRect(
                             rain.x,
                             rain.y-rain.height,
