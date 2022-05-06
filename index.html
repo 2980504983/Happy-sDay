@@ -77,10 +77,10 @@
 
 .sun{
     position: absolute;
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     top: 45%;
-    left:34%;
+    left:35%;
     background-color: rgb(255, 255, 200);
     border-radius: 50%;
     box-shadow: 0 0 4rem rgb(243, 255, 22), 0 0 200rem rgb(255, 255, 100); 
@@ -189,9 +189,9 @@ init: function() {
 
     this.vy = random(2, 4);
     this.vr = 1;
-    this.a = 2;
+    this.a = 1;  // 上次修改2->1
     this.va = 0.96;
-    this.l = random(h * 0.8, h * 1.2);
+    this.l = random(h * 0.6, h * 0.8);
 },
 // 如果当前流星的y坐标大于l,就画圆圈,没有的话
 draw: function() {
@@ -214,7 +214,7 @@ draw: function() {
 update: function() {
     if (this.y < this.l) {
         // 如果流星的y坐标小于l,则y坐标加等于速度
-        this.x -= this.vy+3;
+        this.x -= this.vy+5;
         this.y += this.vy+0.4;
         // 如果大于l,并且a
     } else {
@@ -260,7 +260,9 @@ var b = Math.floor(Math.random() * 255);
 return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 };
 loadStyles();
+    function music(){
 
+    }
         }
         
     </script>
