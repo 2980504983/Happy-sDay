@@ -15,6 +15,12 @@
             background-color: black;
             overflow: hidden;
         }
+        #bg1{
+            position: absolute;
+            border: 1px solid #fff;
+            top: 46%;
+            left: 10%;
+        }
         #button{
             width: 9em;
             height: 3em;
@@ -37,8 +43,8 @@
             width: 0;
             height: 0;
             opacity: 0.2;
-            border: 0.005em solid transparent;
-            border-bottom: 0.001em solid #fff;
+            border: 0.01em solid transparent;
+            border-bottom: 0.01em solid #fff;
             animation:flash 2s infinite linear;
         }
         .star::before{
@@ -69,13 +75,13 @@
 
 .sun{
     position: absolute;
-    width: 10rem;
-    height: 10rem;
+    width: 5rem;
+    height: 5rem;
     top: 50%;
-    left:50%;
+    left:42%;
     background-color: rgb(255, 255, 200);
     border-radius: 50%;
-    box-shadow: 0 0 3rem rgb(243, 255, 11), 0 0 140rem rgb(255, 255, 94); 
+    box-shadow: 0 0 8rem rgb(248, 255, 113), 0 0 140rem rgb(255, 255, 171); 
 }
     </style>
 </head>
@@ -88,9 +94,11 @@
         
 
             
-        <div class="sun" style="display:none"></div>
-  
+        <div class="sun" style="display:none;z-index: 9999;"></div>
+        <img src="./img/bg1.png" alt="" id="bg1" style="display:none">
         <canvas id="canvas" ></canvas>
+        
+        
         
 
 
@@ -126,13 +134,17 @@
             var button = document.getElementById("button");
             button.style.display = "none";
 
-            // 设置背景
-            // document.getElementById("background").setAttribute("background-image", "img/people.jpg");
+
+
             
             //动态引入月亮样式(将显示属性改成block)
+            //动态引入背景图片
             function loadStyles(){
                 var sun = document.getElementsByClassName("sun")[0];
                 sun.style.display = "block";
+                bg = document.getElementById("bg1");
+                bg.style.display = "block";
+
                 
 
             }
@@ -169,11 +181,11 @@ init: function() {
     
 
     
-    this.r = 0.4;
+    this.r = 1;
     this.color = '#0ff';
 
 
-    this.vy = random(2, 10);
+    this.vy = random(2, 4);
     this.vr = 1;
     this.a = 2;
     this.va = 0.96;
@@ -193,15 +205,15 @@ draw: function() {
     } else {
         ctx.fillStyle = color(this.a);
         // 绘制流星
-        ctx.fillRect(this.x, this.y, 2, 5);
+        ctx.fillRect(this.x, this.y, 1, 2);
     }
     this.update();
 },
 update: function() {
     if (this.y < this.l) {
         // 如果流星的y坐标小于l,则y坐标加等于速度
-        this.x -= this.vy+5;
-        this.y += this.vy+Math.sin((30 * 150) / 100);
+        this.x -= this.vy+2;
+        this.y += this.vy+0.4;
         // 如果大于l,并且a
     } else {
         if (this.a > 0.03) {
