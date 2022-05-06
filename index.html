@@ -38,15 +38,15 @@
             transition: 1s;
         }
         #button:hover{
-            box-shadow: 0 0 1000px rgb(252, 255, 214);
+            box-shadow: 0 0 100px rgb(252, 255, 214);
         }
         .star{
             position:absolute;
             width: 0;
             height: 0;
             opacity: 0.2;
-            border: 0.01em solid transparent;
-            border-bottom: 0.01em solid #fff;
+            border: 0.05em solid transparent;
+            border-bottom: 0.05em solid #fff;
             animation:flash 2s infinite linear;
         }
         .star::before{
@@ -79,8 +79,8 @@
     position: absolute;
     width: 7rem;
     height: 7rem;
-    top: 40%;
-    left:38%;
+    top: 35%;
+    left:30%;
     background-color: rgb(255, 255, 200);
     border-radius: 50%;
     box-shadow: 0 0 4rem rgb(243, 255, 22), 0 0 200rem rgb(255, 255, 100); 
@@ -163,7 +163,7 @@ var ctx = can.getContext('2d');
 var w = can.width = window.innerWidth;
 var h = can.height = window.innerHeight;
 
-var count = 30;
+var count = 20;
 var drops = [];
 window.onresize = function() {
 w = can.width = window.innerWidth;
