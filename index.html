@@ -191,7 +191,7 @@ init: function() {
     this.vr = 1;
     this.a = 2;
     this.va = 0.96;
-    this.l = random(h * 0.6, h * 1.2);
+    this.l = random(h * 0.8, h * 1.2);
 },
 // 如果当前流星的y坐标大于l,就画圆圈,没有的话
 draw: function() {
@@ -207,7 +207,7 @@ draw: function() {
     } else {
         ctx.fillStyle = color(this.a);
         // 绘制流星
-        ctx.fillRect(this.x, this.y, 1, 2.5);
+        ctx.fillRect(this.x, this.y, 1, 2);
     }
     this.update();
 },
