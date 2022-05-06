@@ -80,7 +80,7 @@
     width: 6rem;
     height: 6rem;
     top: 45%;
-    left:35%;
+    left:38%;
     background-color: rgb(255, 255, 200);
     border-radius: 50%;
     box-shadow: 0 0 4rem rgb(243, 255, 22), 0 0 200rem rgb(255, 255, 100); 
@@ -99,6 +99,7 @@
         <div class="sun" style="display:none;z-index: 9999;"></div>
         <img src="./img/bg1.png" alt="" id="bg1" style="display:none">
         <canvas id="canvas" ></canvas>
+        <audio src="lxy.mp3" id="music"></audio>
         
         
         
@@ -146,10 +147,14 @@
                 sun.style.display = "block";
                 bg = document.getElementById("bg1");
                 bg.style.display = "block";
-
-                
-
             }
+
+            function music(){
+                var music = document.getElementById("music");
+                music.play()
+            }
+            music();
+            
             
             
 
@@ -260,9 +265,7 @@ var b = Math.floor(Math.random() * 255);
 return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 };
 loadStyles();
-    function music(){
 
-    }
         }
         
     </script>
