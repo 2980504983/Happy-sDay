@@ -32,14 +32,41 @@
             top: 50%;
             left: 51%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(to right, rgb(252, 252, 252) 10%, rgb(182, 182, 182));
+            background: linear-gradient(to right, #ffad29 10%, rgb(121, 244, 255));
             border-radius: 40px;
             cursor: pointer;
             transition: 1s;
+            box-shadow: 0 0 100px rgb(4, 12, 255);
         }
-        #button:hover{
-            box-shadow: 0 0 100px rgb(252, 255, 214);
+        #button2{
+            width: 9em;
+            height: 3em;
+            outline: none;
+            border: none;
+            position: absolute;
+            top: 20%;
+            left: 51%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(to right, #523a41 10%, rgb(68, 95, 97));
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 1s;
+            box-shadow: 0 0 100px rgb(240, 93, 169);
         }
+        p {
+
+
+text-align: center;
+
+color: #fff;
+
+font-size: 1em;
+text-shadow: #ffad29;
+
+
+}
+
+
         .star{
             position:absolute;
             width: 0;
@@ -85,6 +112,17 @@
     border-radius: 50%;
     box-shadow: 0 0 4rem rgb(243, 255, 22), 0 0 200rem rgb(255, 255, 100); 
 }
+#text{
+    position: absolute;
+    float: left;
+    width: 500px;
+    
+    top: 20%;
+    left: 5%;
+    color:#fa0053;
+    font-size:20px;
+    text-shadow: 0 0 4rem rgb(255, 0, 0); 
+}
     </style>
 </head>
 
@@ -98,8 +136,13 @@
             
         <div class="sun" style="display:none;z-index: 9999;"></div>
         <img src="./img/bg1.png" alt="" id="bg1" style="display:none">
+        <button id="button2" onclick=aa() style="display: none;">
+            <p>工作了一天, 放松下来, 静静的听首歌吧</p>
+        </button>
+        <div id="text"></div>
         <canvas id="canvas" ></canvas>
         <audio src="lxy.mp3" id="music"></audio>
+        
         
         
         
@@ -109,9 +152,49 @@
 
     </div>
     <script>
-        function bb(){
+
+        // 按钮二的点击事件,当按钮二被点击时,开始播放音乐,计录音乐播放的时间,当过去67秒后,显示文本
+        function aa(){
             
-            var starCount = 200;
+            function music(){
+                var music = document.getElementById("music");
+                music.play()
+            }
+            music();
+            var button2 = document.getElementById("button2");
+            button2.style.display = "none";
+            
+
+            // 字体显示函数
+            function displayFont(){
+                var i=0;
+
+                var str="妈,母亲节快乐,希望你每天都能开开心心";
+
+                function typing(){
+                //获取div
+
+                var mydiv=document.getElementById("text");
+
+                mydiv.innerHTML+=str.charAt(i);
+
+                i++;
+
+                var id=setTimeout(typing,200);
+
+                if(i==str.length){
+                clearTimeout(id);
+                }
+                }
+                typing();
+            }
+            // 记录时间,显示字体
+            setTimeout(displayFont, 67000);
+
+        }
+    
+        function bb(){
+            var starCount = 100;
             console.log('click可触发')
             function startInit(){
                 var bg=document.querySelector("body");
@@ -136,29 +219,20 @@
             // 关闭按钮
             var button = document.getElementById("button");
             button.style.display = "none";
-
-
-
             
             //动态引入月亮样式(将显示属性改成block)
             //动态引入背景图片
+            //显示第二个按钮
             function loadStyles(){
                 var sun = document.getElementsByClassName("sun")[0];
                 sun.style.display = "block";
                 bg = document.getElementById("bg1");
                 bg.style.display = "block";
-            }
+                
+                button2 = document.getElementById("button2");
+                button2.style.display = "block";
 
-            function music(){
-                var music = document.getElementById("music");
-                music.play()
             }
-            music();
-            
-            
-            
-
-            
 
 
 
