@@ -155,7 +155,11 @@ text-shadow: #ffad29;
 
         // 按钮二的点击事件,当按钮二被点击时,开始播放音乐,计录音乐播放的时间,当过去69秒后,显示文本
         function aa(){
-            
+            function music(){
+                var music = document.getElementById("music");
+                music.play()
+            }
+            music();
             // 初始化画布,w为画布宽度,h为画布高度
 var can = document.getElementById('canvas');
 var ctx = can.getContext('2d');
@@ -258,11 +262,7 @@ var g = Math.floor(Math.random() * 255);
 var b = Math.floor(Math.random() * 255);
 return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 };
-            function music(){
-                var music = document.getElementById("music");
-                music.play()
-            }
-            music();
+
             var button2 = document.getElementById("button2");
             button2.style.display = "none";
             
