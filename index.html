@@ -156,86 +156,6 @@ text-shadow: #ffad29;
         // 按钮二的点击事件,当按钮二被点击时,开始播放音乐,计录音乐播放的时间,当过去69秒后,显示文本
         function aa(){
             
-            function music(){
-                var music = document.getElementById("music");
-                music.play()
-            }
-            music();
-            var button2 = document.getElementById("button2");
-            button2.style.display = "none";
-            
-
-            // 字体显示函数
-            function displayFont(){
-                var i=0;
-
-                var str="妈,母亲节快乐,希望你每天都能开开心心";
-
-                function typing(){
-                //获取div
-
-                var mydiv=document.getElementById("text");
-
-                mydiv.innerHTML+=str.charAt(i);
-
-                i++;
-
-                var id=setTimeout(typing,500);
-
-                if(i==str.length){
-                clearTimeout(id);
-                }
-                }
-                typing();
-            }
-            // 记录时间,显示字体
-            setTimeout(displayFont, 68000);
-
-        }
-    
-        function bb(){
-            var starCount = 100;
-            console.log('click可触发')
-            function startInit(){
-                var bg=document.querySelector("body");
-                console.log('startInit可触发')
-                for(var i=0; i<starCount; i++){
-                    var star=document.createElement("div");
-                    star.classList.add("star");
-                    bg.appendChild(star);
-                }
-            }
-            function starPosition(){
-                var stars=document.querySelectorAll(".star");
-                for(var i=0;i<starCount;i++){
-                    stars[i].style.left=Math.random()*window.innerWidth+"px";
-                    stars[i].style.top=Math.random()*window.innerHeight+"px";
-                    stars[i].style.animationDelay=Math.random()*10+"s";
-                }
-            }
-            startInit();
-            starPosition();
-
-            // 关闭按钮
-            var button = document.getElementById("button");
-            button.style.display = "none";
-            
-            //动态引入月亮样式(将显示属性改成block)
-            //动态引入背景图片
-            //显示第二个按钮
-            function loadStyles(){
-                var sun = document.getElementsByClassName("sun")[0];
-                sun.style.display = "block";
-                bg = document.getElementById("bg1");
-                bg.style.display = "block";
-                
-                button2 = document.getElementById("button2");
-                button2.style.display = "block";
-
-            }
-
-
-
             // 初始化画布,w为画布宽度,h为画布高度
 var can = document.getElementById('canvas');
 var ctx = can.getContext('2d');
@@ -338,8 +258,84 @@ var g = Math.floor(Math.random() * 255);
 var b = Math.floor(Math.random() * 255);
 return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 };
-loadStyles();
+            function music(){
+                var music = document.getElementById("music");
+                music.play()
+            }
+            music();
+            var button2 = document.getElementById("button2");
+            button2.style.display = "none";
+            
 
+            // 字体显示函数
+            function displayFont(){
+                var i=0;
+
+                var str="妈,母亲节快乐,希望你每天都能开开心心";
+
+                function typing(){
+                //获取div
+
+                var mydiv=document.getElementById("text");
+
+                mydiv.innerHTML+=str.charAt(i);
+
+                i++;
+
+                var id=setTimeout(typing,500);
+
+                if(i==str.length){
+                clearTimeout(id);
+                }
+                }
+                typing();
+            }
+            // 记录时间,显示字体
+            setTimeout(displayFont, 68000);
+
+        }
+    
+        function bb(){
+            var starCount = 100;
+            console.log('click可触发')
+            function startInit(){
+                var bg=document.querySelector("body");
+                console.log('startInit可触发')
+                for(var i=0; i<starCount; i++){
+                    var star=document.createElement("div");
+                    star.classList.add("star");
+                    bg.appendChild(star);
+                }
+            }
+            function starPosition(){
+                var stars=document.querySelectorAll(".star");
+                for(var i=0;i<starCount;i++){
+                    stars[i].style.left=Math.random()*window.innerWidth+"px";
+                    stars[i].style.top=Math.random()*window.innerHeight+"px";
+                    stars[i].style.animationDelay=Math.random()*10+"s";
+                }
+            }
+            startInit();
+            starPosition();
+
+            // 关闭按钮
+            var button = document.getElementById("button");
+            button.style.display = "none";
+            
+            //动态引入月亮样式(将显示属性改成block)
+            //动态引入背景图片
+            //显示第二个按钮
+            function loadStyles(){
+                var sun = document.getElementsByClassName("sun")[0];
+                sun.style.display = "block";
+                bg = document.getElementById("bg1");
+                bg.style.display = "block";
+                
+                button2 = document.getElementById("button2");
+                button2.style.display = "block";
+
+            }
+            loadStyles();
         }
         
     </script>
